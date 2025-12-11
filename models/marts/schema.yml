@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_coin
+    description: "Dimension table of all crypto assets."
+    columns:
+      - name: Symbol
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_crypto_prices
+    description: "Unified fact table combining historical and realtime data."
+    columns:
+      - name: Symbol
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_coin')
+              field: Symbol

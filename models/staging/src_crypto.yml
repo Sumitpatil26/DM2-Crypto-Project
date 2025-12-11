@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: crypto
+    database: dm-2-479815
+    schema: DM2_Crypto
+
+    tables:
+      - name: crypto_coincap_raw
+      - name: crypto_kaggle_raw
