@@ -18,3 +18,13 @@ models:
           - relationships:
               to: ref('dim_coin')
               field: Symbol
+  
+  - name: crypto_metrics
+    description: "Technical indicators for crypto prices including SMA and EMA"
+    columns:
+      - name: Symbol
+        tests: [not_null]
+      - name: DateTime
+        tests: [not_null]
+      - name: Close
+        tests: [not_null]

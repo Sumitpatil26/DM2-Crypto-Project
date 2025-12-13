@@ -27,7 +27,7 @@ renamed AS (
 cleaned AS (
     SELECT *
     FROM renamed
-    WHERE Symbol IS NOT NULL      -- 🔥 IMPORTANT: prevents dim_coin errors
+    WHERE Symbol IS NOT NULL
       AND DateTime IS NOT NULL
       AND Open IS NOT NULL
       AND High IS NOT NULL

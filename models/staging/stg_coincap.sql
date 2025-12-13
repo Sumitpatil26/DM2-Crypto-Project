@@ -3,18 +3,18 @@ with raw as (
     from {{ source('crypto', 'crypto_coincap_raw') }}
 ),
 
--- 1️⃣ Add unique row fingerprint
+-- Add unique row fingerprint
 deduped as (
     select
         *,
         row_number() over (
             partition by Symbol, DateTime
-            order by DateTime desc         -- keep newest row
+            order by DateTime desc 
         ) as rn
     from raw
 )
 
--- 2️⃣ Only keep one record per Symbol+DateTime
+-- Only keep one record per Symbol+DateTime
 select
     CoinName,
     Symbol,
